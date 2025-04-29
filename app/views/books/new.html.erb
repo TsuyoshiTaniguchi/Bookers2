@@ -9,10 +9,12 @@
   <h4>Introduction</h4>
   <%= f.text_area :body %>
 
-  <div class="form-group">
-    <%= f.submit "Create Book", class: "btn btn-secondary" %>
+  <% unless user.guest_user? %>
+  <div class="row">
+    <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block" do %>
+      <i class="fas fa-user-cog"></i>
+    <% end %>
   </div>
-
 <% end %>
 
 
